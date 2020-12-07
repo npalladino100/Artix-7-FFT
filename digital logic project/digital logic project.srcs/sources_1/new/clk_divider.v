@@ -1,25 +1,20 @@
-module clk_divider (
-		    input      clk,
-		    output reg clk_div
-		    );
-   localparam constantNumber = 50;  // 1MHz
 
-   reg [31:0] 		       count;
-   
-   always @ (posedge(clk))
-     begin
-	if (count == constantNumber - 1)
-          count <= 32'b0;
-	else
-          count <= count + 1;
-     end
-   
-   always @ (posedge(clk))
-     begin
-	if (count == constantNumber - 1)
-          clk_div <= ~clk_div;
-	else
-          clk_div <= clk_div;
-     end
-   
+module clk_divider(clock_in,clock_out
+    );
+input clock_in;
+output clock_out;
+reg[27:0] counter=28'd0;
+parameter DIVISOR = 28'd100; // 1 Hz
+// The frequency of the output clk_out
+//  = The frequency of the input clk_in divided by DIVISOR
+// For example: Fclk_in = 50Mhz, if you want to get 1Hz signal to blink LEDs
+// You will modify the DIVISOR parameter value to 28'd50.000.000
+// Then the frequency of the output clk_out = 50Mhz/50.000.000 = 1Hz
+always @(posedge clock_in)
+begin
+ counter <= counter + 28'd1;
+ if(counter>=(DIVISOR-1))
+  counter <= 28'd0;
+end
+assign clock_out = (counter<DIVISOR/2)?1'b0:1'b1;
 endmodule

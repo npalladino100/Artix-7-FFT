@@ -2,7 +2,7 @@
 
 // Module for generating a sine wave
 module osc_sine(freq, clk, sin);
-    input [11:0] freq;
+    input [15:0] freq;
     input clk;          // 1MHz clock
     output [15:0] sin;  // Signal value
     
