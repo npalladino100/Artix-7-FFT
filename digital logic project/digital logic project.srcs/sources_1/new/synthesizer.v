@@ -3,7 +3,6 @@
 module synthesizer(
    output reg [15:0] sig_out, // Signal output
    input 	 clk_100MHz,  // 100MHz built-in clock
-   input 	 clk_1MHz,    // 1MHz clk
    input [3:0] 	 sw,          // Switches for choosing which types of waveforms
                                 // to include in the output signal
    input [3:0] 	 sig_sel,     // Switches to select waveform to change frequency
@@ -21,7 +20,11 @@ module synthesizer(
    wire [11:0] 	 freq2; 
    wire [11:0] 	 freq3; 
    wire [11:0] 	 freq4;
-    
+   wire 	 clk_1MHz;
+
+
+   clk_divider cd(clk_100MHz, clk_1MHz);
+   
     // Generates first sine wave
     osc_sine sinesc_1 (
         // Inputs

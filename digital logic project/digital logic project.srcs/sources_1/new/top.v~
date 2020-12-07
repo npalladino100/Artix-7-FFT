@@ -1,0 +1,17 @@
+`timescale 1ns / 1ps
+
+module top(
+	   output [15:0] sig_out,
+	   input clk_100MHz,
+	   input [3:0] sw,
+	   input [3:0] sig_sel,
+	   input PS2_CLK,
+	   input PS_DATA,
+	   input enable
+	   );
+
+
+   
+   synthesizer synth(sig_out, clk_100MHz, clk_1MHz, sw, sig_sel, PS2_CLK, PS2_DATA, enable);
+   
+endmodule
