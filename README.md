@@ -1,1 +1,1 @@
-# digital-logic-project
+# Artix-7-FFT
