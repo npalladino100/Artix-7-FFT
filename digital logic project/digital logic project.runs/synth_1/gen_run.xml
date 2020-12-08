@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1607382220">
   <File Type="PA-TCL" Name="synthesizer.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="synthesizer_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="synthesizer_reports.tcl"/>
   <File Type="RDS-RDS" Name="synthesizer.vds"/>
   <File Type="RDS-UTIL" Name="synthesizer_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="synthesizer_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="synthesizer.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="synthesizer_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="synthesizer_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/PS2_Receiver.v">
@@ -67,8 +64,10 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/Nexys4DDR_Master.xdc">
+    <File Path="$PSRCDIR/constrs_1/imports/digital logic project/Nexys4DDR_Master.xdc">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/Nexys4DDR_Master.xdc"/>
+        <Attr Name="ImportTime" Val="1607381807"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
