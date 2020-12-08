@@ -16,20 +16,8 @@ module top
     output wire [7:0]  leds,
     input wire 	       adc_sd,
 
-	   // ram2ddrxadc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    input wire 	       clk_200MHz_i, 
-    input wire 	       rst_i, 
-    input wire 	       device_temp_i, 
-     
-	   // RAM interface
-    input wire [26:0]  ram_a, 
-    input wire [15:0]  ram_dq_i, 
-    output wire [15:0] ram_dq_o, 
-    input wire 	       ram_cen, 
-    input wire 	       ram_oen, 
-    input wire 	       ram_wen, 
-    input wire 	       ram_ub, 
-    input wire 	       ram_lb, 
+	   // ram2ddrxadc ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+    input wire 	       device_temp_i,
      
 	   // DDR2 interface
     output wire        ddr2_addr, 
@@ -51,19 +39,31 @@ module top
 	   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	   
 	   ////////////////////////	VGA			///////////////
-    output wire        VGA_CLK, //	VGA Clock
+    
     output wire        VGA_HS, //	VGA H_SYNC
     output wire        VGA_VS, //	VGA V_SYNC
-    output wire        VGA_BLANK, //	VGA BLANK
-    output wire        VGA_SYNC, //	VGA SYNC
     output wire [9:0]  VGA_R, //	VGA Red[9:0]
     output wire [9:0]  VGA_G, //	VGA Green[9:0]
-    output wire [9:0]  VGA_B, //	VGA Blue[9:0]
+    output wire [9:0]  VGA_B //	VGA Blue[9:0]
 	   
-     ////////////////	TV Decoder		////////////////////////
-    output wire        TD_RESET						//	TV Decoder Reset
+
 	   
 	   );
+     ////////////////	TV Decoder		////////////////////////
+   wire        TD_RESET;  //	TV Decoder Reset
+   wire       VGA_CLK;   //	VGA Clock (UNUSED)
+   wire       VGA_BLANK; //	VGA BLANK (UNUSED)
+   wire       VGA_SYNC;  //	VGA SYNC (UNUSED)
+   
+   // RAM interface
+   wire [26:0] 	       ram_a; 
+   wire [15:0] 	       ram_dq_i;  
+   wire [15:0] 	       ram_dq_o;  
+   wire 	       ram_cen;  
+   wire 	       ram_oen;
+   wire 	       ram_wen;
+   wire 	       ram_ub; 
+   wire 	       ram_lb;
 
    
    reg [17:0] 		     addr_reg; //SRAM address register
@@ -129,7 +129,7 @@ module top
    
     wire adc_ready;
     wire [WIDTH-1:0] adc_data;
-    adc adc_inst(.clk(clk_16m), .adc_clk(adc_clk), .adc_cs(adc_cs), .adc_sd(adc_sd), .data(adc_data), .ready(adc_ready), .reset(~reset));
+    adc adc_inst(.clk(clk_16m), .adc_clk(adc_clk), .adc_cs(adc_cs), .adc_sd(adc_sd), .data(adc_data), .ready(adc_ready), .reset(reset));
 
     wire signed [WIDTH-1:0] sample_imag = 12'b0;
     wire signed [WIDTH-1:0] output_real, output_imag;
@@ -164,7 +164,7 @@ module top
     wire fft_ce;
     wire [WIDTH-1:0] decimated_data;
     decimator #(.WIDTH(WIDTH)) decimator_0(.clk(clk_16m), .ce(adc_ready), .data_in(adc_data), .data_out(decimated_data), .new_sample(fft_ce));
-    fftmain fft_0(.i_clk(clk_16m), .i_reset(~reset), .i_ce(fft_ce), .i_sample({decimated_data, sample_imag}), .o_result({output_real, output_imag}), .o_sync(sync));
+    fftmain fft_0(.i_clk(clk_16m), .i_reset(reset), .i_ce(fft_ce), .i_sample({decimated_data, sample_imag}), .o_result({output_real, output_imag}), .o_sync(sync));
 
    assign FFT_out = bin;
    
@@ -180,8 +180,13 @@ module top
     endgenerate
     
    // RAM to DDR controller ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// 200MHz PLL
+   wire clk_200MHz;
+
+   wire rst_i = 0; // active high reset
    ram2ddrxadc r2d(
-		   .clk_200MHz_i(clk_200MHz_i),  
+		   .clk_200MHz_i(clk_200MHz),  
 		   .rst_i(rst_i),         
 		   .device_temp_i(device_temp_i), 
      		   .ram_a(ram_a),         
@@ -327,12 +332,12 @@ begin
 			//decrement the accumulator & clear the flag
 			samp_count <= samp_count + 32'b1 - samp_time;
 			s_flag <= 0;
-		end else if (button) begin
+		end else if (!button) begin
 			//increment the accumulator if not paused
 			samp_count <= samp_count + 32'b1;
 		end
 		
-		if ((~VGA_HS  | ~VGA_VS)& button) begin
+		if ((~VGA_HS  | ~VGA_VS)& !button) begin
 			//At the start of a vertical sync, copy over to SRAM from the buffer
 			if (~VGA_VS & v_sync_start) begin
 				//if there still exist samples in the buffer to be copied

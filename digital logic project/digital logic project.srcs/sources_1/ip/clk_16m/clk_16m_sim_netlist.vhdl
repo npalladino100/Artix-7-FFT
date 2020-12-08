@@ -1,10 +1,10 @@
--- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
--- Date        : Fri Dec  4 00:06:15 2020
--- Host        : DESKTOP-S84O08T running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim {c:/Users/Peter/Desktop/Spectrum
---               Display/Current/SpectrumDisplayFour/SpectrumDisplayFour.srcs/sources_1/ip/clk_16m/clk_16m_sim_netlist.vhdl}
+-- Tool Version: Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
+-- Date        : Tue Dec  8 15:59:02 2020
+-- Host        : Nich running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode funcsim -rename_top clk_16m -prefix
+--               clk_16m_ clk_16m_sim_netlist.vhdl
 -- Design      : clk_16m
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,8 +20,6 @@ entity clk_16m_clk_16m_clk_wiz is
     resetn : in STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of clk_16m_clk_16m_clk_wiz : entity is "clk_16m_clk_wiz";
 end clk_16m_clk_16m_clk_wiz;
 
 architecture STRUCTURE of clk_16m_clk_16m_clk_wiz is
