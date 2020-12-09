@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Tue Dec  8 19:04:01 2020
+# Process ID: 16004
+# Current directory: C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/PWM_FFT/PWM_FFT.runs/clk_16m_synth_1
+# Command line: vivado.exe -log clk_16m.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_16m.tcl
+# Log file: C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/PWM_FFT/PWM_FFT.runs/clk_16m_synth_1/clk_16m.vds
+# Journal file: C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/PWM_FFT/PWM_FFT.runs/clk_16m_synth_1\vivado.jou
+#-----------------------------------------------------------
+source clk_16m.tcl -notrace
