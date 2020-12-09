@@ -71,10 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 2
-set_param synth.incrementalSynthesisCache {C:/Users/Nick Palladino/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-13860-Nich/incrSyn}
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -94,9 +90,7 @@ OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   {C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/Artix-7-FFT/Artix-7-FFT.srcs/sources_1/new/adc.v}
   {C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/Artix-7-FFT/Artix-7-FFT.srcs/sources_1/new/bram_to_fft.v}
-  {C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/Artix-7-FFT/Artix-7-FFT.srcs/sources_1/new/debouncer.v}
   {C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/Artix-7-FFT/Artix-7-FFT.srcs/sources_1/new/decimator.v}
-  {C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/Artix-7-FFT/Artix-7-FFT.srcs/sources_1/new/hex_display.v}
   {C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/Artix-7-FFT/Artix-7-FFT.srcs/sources_1/new/level2pulse.v}
   {C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/Artix-7-FFT/Artix-7-FFT.srcs/sources_1/new/plotter.v}
   {C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/Artix-7-FFT/Artix-7-FFT.srcs/sources_1/new/synchronizer.v}

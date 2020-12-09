@@ -1,0 +1,261 @@
+
+*** Running vivado
+    with args -log synthesizer.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source synthesizer.tcl
+
+
+
+****** Vivado v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source synthesizer.tcl -notrace
+Command: synth_design -top synthesizer -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 18472
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'synthesizer' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/synthesizer.v:3]
+INFO: [Synth 8-6157] synthesizing module 'clk_divider' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/clk_divider.v:2]
+	Parameter DIVISOR bound to: 28'b0000000000000000000001100100 
+INFO: [Synth 8-6155] done synthesizing module 'clk_divider' (1#1) [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/clk_divider.v:2]
+INFO: [Synth 8-6157] synthesizing module 'osc_sine' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/osc_sine.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'osc_sine' (2#1) [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/osc_sine.v:4]
+INFO: [Synth 8-6157] synthesizing module 'sig_adder' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/sig_adder.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'sig_adder' (3#1) [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/sig_adder.v:5]
+INFO: [Synth 8-6157] synthesizing module 'PS2_Receiver' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/PS2_Receiver.v:3]
+INFO: [Synth 8-6157] synthesizing module 'debouncer' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/debouncer.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'debouncer' (4#1) [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/debouncer.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/PS2_Receiver.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'PS2_Receiver' (5#1) [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/PS2_Receiver.v:3]
+INFO: [Synth 8-6157] synthesizing module 'ps2_kypd_input' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/ps2_kypd_input.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/ps2_kypd_input.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'ps2_kypd_input' (6#1) [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/ps2_kypd_input.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'synthesizer' (7#1) [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/synthesizer.v:3]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1012.898 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/constrs_1/imports/synthesizer contraints/Nexys4DDR_Master.xdc]
+WARNING: [Vivado 12-507] No nets matched 'enable_IBUF'. [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/constrs_1/imports/synthesizer contraints/Nexys4DDR_Master.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/constrs_1/imports/synthesizer contraints/Nexys4DDR_Master.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/constrs_1/imports/synthesizer contraints/Nexys4DDR_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/constrs_1/imports/synthesizer contraints/Nexys4DDR_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/synthesizer_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/synthesizer_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1012.898 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'freq1_reg' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/ps2_kypd_input.v:33]
+WARNING: [Synth 8-327] inferring latch for variable 'freq2_reg' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/ps2_kypd_input.v:34]
+WARNING: [Synth 8-327] inferring latch for variable 'freq3_reg' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/ps2_kypd_input.v:35]
+WARNING: [Synth 8-327] inferring latch for variable 'freq4_reg' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/ps2_kypd_input.v:36]
+WARNING: [Synth 8-327] inferring latch for variable 'sig_out_reg' [C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.srcs/sources_1/new/synthesizer.v:76]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 12    
+	   4 Input   32 Bit       Adders := 4     
+	   3 Input   32 Bit       Adders := 4     
+	   4 Input   16 Bit       Adders := 1     
+	   2 Input    5 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 9     
+	               16 Bit    Registers := 5     
+	               12 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 20    
+	   2 Input   16 Bit        Muxes := 3     
+	   5 Input   16 Bit        Muxes := 4     
+	  11 Input   12 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 5     
+	   3 Input    1 Bit        Muxes := 1     
+	  12 Input    1 Bit        Muxes := 2     
+	  11 Input    1 Bit        Muxes := 1     
+	   5 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 1012.898 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:35 . Memory (MB): peak = 1035.324 ; gain = 22.426
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 1041.090 ; gain = 28.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 1041.090 ; gain = 28.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1041.090 ; gain = 28.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1041.090 ; gain = 28.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1041.090 ; gain = 28.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 1041.090 ; gain = 28.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     3|
+|2     |CARRY4 |  2535|
+|3     |LUT1   |   593|
+|4     |LUT2   |  3496|
+|5     |LUT3   |  5195|
+|6     |LUT4   |    22|
+|7     |LUT5   |   255|
+|8     |LUT6   |    37|
+|9     |FDRE   |   376|
+|10    |FDSE   |    56|
+|11    |LD     |    16|
+|12    |IBUF   |    10|
+|13    |OBUF   |    13|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 1041.090 ; gain = 28.191
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 5 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:39 . Memory (MB): peak = 1041.090 ; gain = 28.191
+Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 1041.090 ; gain = 28.191
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.176 . Memory (MB): peak = 1041.090 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2551 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1041.090 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  LD => LDCE: 16 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+31 Infos, 6 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 1041.090 ; gain = 28.191
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Nick Palladino/Documents/GitHub/digital-logic-project/digital logic project/digital logic project.runs/synth_1/synthesizer.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file synthesizer_utilization_synth.rpt -pb synthesizer_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Dec  8 20:35:35 2020...

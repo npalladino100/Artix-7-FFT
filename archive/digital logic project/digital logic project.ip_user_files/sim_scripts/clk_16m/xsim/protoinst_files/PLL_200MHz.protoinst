@@ -1,9 +1,0 @@
-{
-	"version": "1.0",
-	"modules": {
-		"PLL_200MHz": {
-			"proto_instances": {
-			}
-		}
-	}
-}

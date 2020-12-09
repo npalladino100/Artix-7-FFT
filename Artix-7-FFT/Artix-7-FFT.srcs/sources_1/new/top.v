@@ -1,22 +1,17 @@
 `default_nettype none
 
 module top (
-    input wire 	       CLK100MHZ,
-    input wire [15:0]  SW, 
-    input wire 	       BTNC, BTNU, BTNL, BTNR, BTND,
-    output wire [3:0]  VGA_R, 
-    output wire [3:0]  VGA_B, 
-    output wire [3:0]  VGA_G,
-    output wire        VGA_HS, 
-    output wire        VGA_VS,
-    output wire        LED16_B, LED16_G, LED16_R,
-    output wire        LED17_B, LED17_G, LED17_R,
-    output wire [15:0] LED, // LEDs above switches
-    output wire [7:0]  SEG, // segments A-G (0-6), DP (7)
-    output wire [7:0]  AN, // Display 0-7
-    input wire 	       adc_sd,
-    output wire        adc_cs,
-    output wire        adc_clk
+	    input wire 	       clk_100MHz,
+	    input wire [15:0]  SW, 
+	    input wire 	       BTNC,
+	    output wire [3:0]  VGA_R, 
+	    output wire [3:0]  VGA_B, 
+	    output wire [3:0]  VGA_G,
+	    output wire        VGA_HS, 
+	    output wire        VGA_VS,
+	    input wire 	       adc_sd,
+	    output wire        adc_cs,
+	    output wire        adc_clk
     );
 
     // SETUP CLOCKS
@@ -25,12 +20,12 @@ module top (
     // And the ADC can do one conversion in 26 clock cycles
     // So the sample rate is 1Msps (not posssible w/ 100Mhz)
     // 65Mhz for VGA Video
-   wire 	       clk_104mhz, clk_65mhz, clk_16mhz;
+   wire 	       clk_104MHz, clk_65MHz, clk_16MHz;
    clk_wiz_0 clockgen(
-		      .clk_in1(CLK100MHZ),
-		      .clk_out1(clk_104mhz),
-		      .clk_out2(clk_65mhz),
-		      .clk_out3(clk_16mhz)
+		      .clk_in1(clk_100MHz),
+		      .clk_out1(clk_104MHz),
+		      .clk_out2(clk_65MHz),
+		      .clk_out3(clk_16MHz)
 		      );
 
    // INSTANTIATE XVGA SIGNALS (1024x768)
@@ -38,7 +33,7 @@ module top (
    wire [9:0] 	       vcount;
    wire 	       hsync, vsync, blank;
    xvga xvga1(
-              .vclock(clk_65mhz),
+              .vclock(clk_65MHz),
               .hcount(hcount),
               .vcount(vcount),
               .vsync(vsync),
@@ -46,64 +41,42 @@ module top (
               .blank(blank)
 	      );
    
-// **************** BEGIN BASIC IO SETUP *******************************//
-
-    // INSTANTIATE SEVEN SEGMENT DISPLAY
-   hex_display display(
-		       .clk(clk_65mhz),
-		       .data(32'hEC31_1020),
-		       .seg(SEG[6:0]),
-		       .strobe(AN)
-		       );
-   assign SEG[7] = 1; 
-
-    // Parametrized debounce module to do all 16 switches and 5 buttons
-    wire BTNC_clean, BTNU_clean, BTND_clean, BTNL_clean, BTNR_clean;
-    wire [15:0] SW_clean;
-    debouncer #(.COUNT(21)) db0 (
-        .clk(clk_104mhz),
-        .reset(1'b0),
-        .noisy({SW, BTNC, BTNU, BTND, BTNL, BTNR}),
-        .clean({SW_clean, BTNC_clean, BTNU_clean, BTND_clean, BTNL_clean, BTNR_clean}));
-
-
-// **************** END BASIC IO SETUP *******************************//
 
     wire [15:0] sample_reg;
     wire eoc, adc_reset;
     
-    assign adc_reset = BTNC_clean;
+    assign adc_reset = BTNC;
 
    // SERIAL ADC
    wire  adc_ready;
    
-   adc adc_inst(.clk(clk_16mhz), .adc_clk(adc_clk), .adc_cs(adc_cs), .adc_sd(adc_sd), .data(sample_reg[11:0]), .ready(eoc), .reset(adc_reset));
+   adc adc_inst(.clk(clk_16MHz), .adc_clk(adc_clk), .adc_cs(adc_cs), .adc_sd(adc_sd), .data(sample_reg[11:0]), .ready(eoc), .reset(adc_reset));
 
    wire [11:0] decimated_data;
    wire        fft_ce;
-    decimator decimator_0(.clk(clk_16mhz), .ce(eoc), .data_in(sample_reg[11:0]), .data_out(decimated_data), .new_sample(fft_ce));
+   decimator decimator_0(.clk(clk_16MHz), .ce(eoc), .data_in(sample_reg[11:0]), .data_out(decimated_data), .new_sample(fft_ce));
+   
+   
+   // INSTANTIATE SAMPLE FRAME BLOCK RAM 
+   // This 16x4096 bram stores the frame of samples
+   // The write port is written by osample16.
+   // The read port is read by the bram_to_fft module and sent to the fft.
+   wire        fwe;
+   reg [11:0] fhead = 0; // Frame head - a pointer to the write point, works as circular buffer
+   wire [15:0] fsample;  // The sample data from the XADC, oversampled 15x
+   wire [11:0] 	faddr;    // Frame address - The read address, controlled by bram_to_fft
+   wire [15:0] 	fdata;    // Frame data - The read data, input into bram_to_fft
+   bram_frame bram1 (
+		      .clka(clk_104MHz),
+		      .wea(fwe),
+		      .addra(fhead),
+		      .dina(fsample),
+		      .clkb(clk_104MHz),
+		      .addrb(faddr),
+		      .doutb(fdata));
 
-
-    // INSTANTIATE SAMPLE FRAME BLOCK RAM 
-    // This 16x4096 bram stores the frame of samples
-    // The write port is written by osample16.
-    // The read port is read by the bram_to_fft module and sent to the fft.
-    wire fwe;
-    reg [11:0] fhead = 0; // Frame head - a pointer to the write point, works as circular buffer
-    wire [15:0] fsample;  // The sample data from the XADC, oversampled 15x
-    wire [11:0] faddr;    // Frame address - The read address, controlled by bram_to_fft
-    wire [15:0] fdata;    // Frame data - The read data, input into bram_to_fft
-    bram_frame bram1 (
-        .clka(clk_104mhz),
-        .wea(fwe),
-        .addra(fhead),
-        .dina(fsample),
-        .clkb(clk_104mhz),
-        .addrb(faddr),
-        .doutb(fdata));
-
-    // SAMPLE FRAME BRAM WRITE PORT SETUP
-    always @(posedge clk_104mhz) if (fft_ce) fhead <= fhead + 1; // Move the pointer every oversample
+   // SAMPLE FRAME BRAM WRITE PORT SETUP
+   always @(posedge clk_104MHz) if (fft_ce) fhead <= fhead + 1; // Move the pointer every oversample
     assign fsample = {decimated_data, 4'b0}; // Pad the oversample with zeros to pretend it's 16 bits
     assign fwe = fft_ce; // Write only when we finish an oversample (every 104*16 clock cycles)
 
@@ -114,12 +87,12 @@ module top (
     // The next two modules just synchronize the 60Hz vsync to the 104Mhz domain and convert it to a 1 cycle pulse.
     wire vsync_104mhz, vsync_104mhz_pulse;
     synchronizer vsync_synchronize(
-        .clk(clk_104mhz),
+        .clk(clk_104MHz),
         .in(vsync),
         .out(vsync_104mhz));
 
     level2pulse vsync_ltp(
-        .clk(clk_104mhz),
+        .clk(clk_104MHz),
         .level(~vsync_104mhz),
         .pulse(vsync_104mhz_pulse));
 
@@ -130,7 +103,7 @@ module top (
     wire [31:0] frame_tdata;
     wire frame_tlast, frame_tready, frame_tvalid;
     bram_to_fft bram_to_fft_0(
-        .clk(clk_104mhz),
+        .clk(clk_104MHz),
         .head(fhead),
         .addr(faddr),
         .data(fdata),
@@ -151,13 +124,13 @@ module top (
     wire [11:0] scale_factor; // This input adjusts the scaling of the FFT, which can be tuned to the input magnitude.
     wire magnitude_tlast, magnitude_tvalid;
     fft_mag fft_mag_i(
-        .clk(clk_104mhz),
+        .clk(clk_104MHz),
         .event_tlast_missing(last_missing),
         .frame_tdata(frame_tdata),
         .frame_tlast(frame_tlast),
         .frame_tready(frame_tready),
         .frame_tvalid(frame_tvalid),
-        .scaling(SW_clean[15:4]),
+        .scaling(SW[15:4]),
         .magnitude_tdata(magnitude_tdata),
         .magnitude_tlast(magnitude_tlast),
         .magnitude_tuser(magnitude_tuser),
@@ -175,11 +148,11 @@ module top (
     wire [9:0] haddr; // The read port address
     wire [15:0] hdata; // The read port data
     bram_fft bram2 (
-        .clka(clk_104mhz),
+        .clka(clk_104MHz),
         .wea(in_range & magnitude_tvalid),  // Only save FFT output if in range and output is valid
         .addra(magnitude_tuser[9:0]),       // The FFT output index, 0 to 1023
         .dina(magnitude_tdata[15:0]),       // The actual FFT magnitude
-        .clkb(clk_65mhz),  // input wire clkb
+        .clkb(clk_65MHz),  // input wire clkb
         .addrb(haddr),     // input wire [9 : 0] addrb
         .doutb(hdata)      // output wire [15 : 0] doutb
     );
@@ -190,11 +163,11 @@ module top (
     wire [2:0] hist_pixel;
     wire [1:0] hist_range;
     plotter fft_plot(
-        .clk(clk_65mhz),
+        .clk(clk_65MHz),
         .hcount(hcount),
         .vcount(vcount),
         .blank(blank),
-        .range(SW_clean[1:0]), // How much to zoom on the first part of the spectrum
+        .range(SW[1:0]), // How much to zoom on the first part of the spectrum
         .vaddr(haddr),
         .vdata(hdata),
         .pixel(hist_pixel));
@@ -207,7 +180,7 @@ module top (
     reg [1:0] hsync_delay;
     reg [1:0] vsync_delay;
     reg hsync_out, vsync_out;
-    always @(posedge clk_65mhz) begin
+    always @(posedge clk_65MHz) begin
         {hsync_out,hsync_delay} <= {hsync_delay,hsync};
         {vsync_out,vsync_delay} <= {vsync_delay,vsync};
     end
@@ -221,12 +194,7 @@ module top (
     assign VGA_HS = hsync_out;
     assign VGA_VS = vsync_out;
     
-    // Assign RGB LEDs
-    assign {LED16_R, LED16_G, LED16_B} = 3'b000;
-    assign {LED17_R, LED17_G, LED17_B} = 3'b000;
-    
-    // Assign switch LEDs to switch states
-    assign LED = SW;
+
 //
 //////////////////////////////////////////////////////////////////////////////////
  

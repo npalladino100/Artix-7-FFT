@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1607477679">
+  <File Type="BITSTR-BMM" Name="synthesizer_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="synthesizer_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="synthesizer_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="synthesizer_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="synthesizer.tcl"/>
+  <File Type="OPT-TIMING" Name="synthesizer_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="synthesizer_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="synthesizer_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="synthesizer_reports.tcl"/>
+  <File Type="OPT-DRC" Name="synthesizer_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="synthesizer.hwdef"/>
+  <File Type="PWROPT-DCP" Name="synthesizer_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="synthesizer_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="synthesizer_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="synthesizer_placed.dcp"/>
+  <File Type="PLACE-IO" Name="synthesizer_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="synthesizer_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="synthesizer_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="synthesizer_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="synthesizer_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="synthesizer_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="synthesizer_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="synthesizer_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="synthesizer_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="synthesizer.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="synthesizer_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="synthesizer_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="synthesizer_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="synthesizer.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="synthesizer_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="synthesizer_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="synthesizer_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="synthesizer_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="synthesizer_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="synthesizer_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="synthesizer_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="synthesizer.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="synthesizer_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="synthesizer_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="synthesizer_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="synthesizer_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="synthesizer_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="synthesizer_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="synthesizer_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="synthesizer_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="synthesizer_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="synthesizer_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="synthesizer_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="synthesizer_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="synthesizer_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="synthesizer_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="synthesizer_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="synthesizer_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="synthesizer_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="synthesizer_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="synthesizer_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="synthesizer_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="synthesizer_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="synthesizer.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="synthesizer_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="synthesizer.rbt"/>
+  <File Type="BITSTR-NKY" Name="synthesizer.nky"/>
+  <File Type="PDI-FILE" Name="synthesizer.pdi"/>
+  <File Type="RCFI_FILE" Name="synthesizer.rcfi"/>
+  <File Type="CFI_FILE" Name="synthesizer.cfi"/>
+  <File Type="RNPI_FILE" Name="synthesizer.rnpi"/>
+  <File Type="NPI_FILE" Name="synthesizer.npi"/>
+  <File Type="RBD_FILE" Name="synthesizer.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="synthesizer.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="synthesizer.sysdef"/>
+  <File Type="BG-BGN" Name="synthesizer.bgn"/>
+  <File Type="BG-DRC" Name="synthesizer.drc"/>
+  <File Type="RDI-RDI" Name="synthesizer.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/PS2_Receiver.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/clk_divider.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/debouncer.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/osc_sine.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/ps2_kypd_input.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/sig_adder.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/synthesizer.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/VGA_Controller/VGA_Param.h">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../VGA_Controller/VGA_Param.h"/>
+        <Attr Name="ImportTime" Val="1283232498"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/VGA_Controller/VGA_Controller.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../VGA_Controller/VGA_Controller.v"/>
+        <Attr Name="ImportTime" Val="1283231798"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/adc.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/adc.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/bimpy.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/bimpy.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/bitreverse.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/bitreverse.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/bram.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/bram.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/butterfly.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/butterfly.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/convround.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/convround.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/decimator.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/decimator.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/fftmain.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/fftmain.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/fftstage.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/fftstage.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/hwbfly.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/hwbfly.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/laststage.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/laststage.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/longbimpy.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/longbimpy.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/pwm.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/pwm.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/qtrstage.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/qtrstage.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/Ram2DdrXadc_RefComp/ram2ddrxadc.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Ram2Ddr_RefComp/Source/Ram2DdrXadc_RefComp/ram2ddrxadc.vhd"/>
+        <Attr Name="ImportTime" Val="1393249530"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/top.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/top.v"/>
+        <Attr Name="ImportTime" Val="1607443839"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/new/clk_div.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/new/clk_div.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/HaddadCrary_Lab3/display_timings.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/HaddadCrary_Lab3/display_timings.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/sources_1/imports/SpectrumDisplay/shiftaddmpy.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/imports/SpectrumDisplay/shiftaddmpy.v"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/fpga-fft-master/gamma.hex">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/fpga-fft-master/fpga-fft-master/gamma.hex"/>
+        <Attr Name="ImportTime" Val="1590769542"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/clk_16m/clk_16m.xci">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../SpectrumDisplayFour.srcs/sources_1/ip/clk_16m/clk_16m.xci"/>
+        <Attr Name="ImportTime" Val="1607120746"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/clk_200m/clk_200m.bd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/mig_7series_0/mig_a.prj">
+      <FileInfo>
+        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="ScopedToCell" Val="mig_7series_0"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/ddr/ddr/mig.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="ScopedToCell" Val="ddr"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="synthesizer"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/synthesizer contraints/Nexys4DDR_Master.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../synthesizer contraints/Nexys4DDR_Master.xdc"/>
+        <Attr Name="ImportTime" Val="1607381807"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

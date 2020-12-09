@@ -1,0 +1,13 @@
+sv xpm  \
+"C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+"C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+
+verilog blk_mem_gen_v8_4_4  \
+"../../../ipstatic/simulation/blk_mem_gen_v8_4.v" \
+
+verilog xil_defaultlib  \
+"../../../ip/bram_fft/sim/bram_fft.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort
