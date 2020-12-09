@@ -7,7 +7,7 @@ a=audiorecorder(freq,nbits,chan);
 recordblocking(a,sec);
 disp('End of Recording.');
 
-%%b=getaudiodata(a);
+b=getaudiodata(a);
 c=fft(b);
-plot (b)
+%%plot (b)
 plot(abs(c))
