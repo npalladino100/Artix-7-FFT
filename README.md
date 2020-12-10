@@ -4,17 +4,17 @@ Issam Haddad U64708933
 Peter Crary U61020993
 Anthony Saab U90831072
 
-#Project Demo Video
+# Project Demo Video
 
 
-#Overview
+# Overview
 This project collects samples from an SPI microphone with analog to digital converter, downsamples them to achieve a sample rate within the audio spectrum, and performs a discrete Fourier transform. The output bins are then displayed as a bar plot over the VGA interface.
 
-#Running Our Project
+# Running Our Project
 Sound can be played into the PMOD microphone with gain adjusted for best performance. Switches are included to adjust the number of bins displayed and the scaling of the bars. Depending on the application, different settings may be ideal.
 
 
-#Code Overview
+# Code Overview
 
 ## adc.v 
 This module handles the SPI interface to Digilent’s PMOD MIC3 microphone with ADC. It is provided with a 16MHz clock that is passed on to the PMOD board, with each sample needing 16 cycles. Following a high chip select (adc_cs) output, the first 4 cycles consist of leading zeros. The remaining 12 make up the 12-bit sample value. This results in a sample throughput of 1 MSPS, available at the module's “data” output when “ready” is high, which indicates the sample is complete.
@@ -57,5 +57,6 @@ Implements an FFT on an FPGA using an external PMOD microphone as an input, and 
 ## arduino
 Two Arduino sketches—an ADC that outputs parallel data via digital pins for use with an FPGA FFT implementation, and parallel digital plotter for the output of an FPGA-implemented FFT.  These sketches were used for debugging before VGA was introduced to our design.
 
+# Relevant Images
 https://i.imgur.com/1yixTF7.png
 https://imgur.com/a/uZz0A59
