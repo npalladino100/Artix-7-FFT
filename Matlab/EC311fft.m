@@ -1,13 +1,14 @@
-freq=input("Frequency in Hz: ");
-nbits= input("Number of bits per sample: ");
-chan=input ("Number of channels: ");
-sec=input ("Time of recording in seconds: ");
-disp('Start speaking.');
+freq=10000;
+nbits= 16;
+chan=1;
+sec=5;
+disp('Start recording.');
 a=audiorecorder(freq,nbits,chan);
 recordblocking(a,sec);
 disp('End of Recording.');
 
 b=getaudiodata(a);
 c=fft(b);
-%%plot (b)
+
 plot(abs(c))
+axis([0 20000 0 max(abs(c))]);
