@@ -24,41 +24,41 @@ module adc (
    reg [3:0]  cnt = 0;
    //    reg capture = 0;
    
-    always @(posedge clk) begin
-       
-       if(reset) begin
-	  
-	  //            max <= 0;
-          serial_data <= 12'b0;
-          cnt <= 0;
-          data <= 12'b0;
-          ready <= 0;
-	  
-       end else begin
-	  
-          cnt<=cnt+1;
-	  
-	  //            if(cnt == 0) begin
-	  //                ready <= 0;
-	  //            end
-	  
-          if(cnt > 3 && cnt <= 15)
-                serial_data <= { serial_data[10:0], adc_sd };
-          if(cnt == 3)
-            serial_data <= 0;
-	  
-          if(cnt == 0) begin
-             data <= serial_data;
-             ready <= 1;
-	     //                if(serial_data > max)
-	     //                    max <= serial_data;
-          end
-	  
-          // ready signal is only valid for 1 clock, used for clock enable
-          if(cnt == 1) 
-            ready <= 0;
-       end
-    end
+   always @(posedge clk) begin
+      
+      if(reset) begin
+	 
+	 //            max <= 0;
+         serial_data <= 12'b0;
+         cnt <= 0;
+         data <= 12'b0;
+         ready <= 0;
+	 
+      end else begin
+	 
+         cnt<=cnt+1;
+	 
+	 //            if(cnt == 0) begin
+	 //                ready <= 0;
+	 //            end
+	 
+         if(cnt > 3 && cnt <= 15)
+           serial_data <= { serial_data[10:0], adc_sd };
+         if(cnt == 3)
+           serial_data <= 0;
+	 
+         if(cnt == 0) begin
+            data <= serial_data;
+            ready <= 1;
+	    //                if(serial_data > max)
+	    //                    max <= serial_data;
+         end
+	 
+         // ready signal is only valid for 1 clock, used for clock enable
+         if(cnt == 1) 
+           ready <= 0;
+      end
+   end
    
    
 endmodule
