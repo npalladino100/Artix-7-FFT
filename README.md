@@ -5,7 +5,7 @@ Peter Crary U61020993
 Anthony Saab U90831072
 
 # Project Demo Video
-
+https://drive.google.com/drive/folders/1ZjeA_Lr92YTrXM2x_BXecFyNE9qc24BQ?usp=sharing
 
 # Overview
 This project collects samples from an SPI microphone with analog to digital converter, downsamples them to achieve a sample rate within the audio spectrum, and performs a discrete Fourier transform. The output bins are then displayed as a bar plot over the VGA interface.
