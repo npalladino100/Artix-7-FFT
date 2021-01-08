@@ -26,7 +26,7 @@ This serves as a buffer between the decimator and the FFT core. The samples are 
 This module takes 12 bits input “data_in”  from the ADC’s output. Everytime the ADC outputs data, chip enable “ce” goes high and increments the register “count” by 1. When count is equal to 32, the decimator outputs data to the next module. So the decimator outputs each 32nd data input it gets. The output “new_sample”  plays the role of the chip enable for the FFT module.
 
 ## plotter.v
-The takes the output data from the FFT for each applicable bin and generates a corresponding address and pixel indicator. This is then used 
+The takes the output data from the FFT for each applicable bin and generates a corresponding address and pixel indicator.
 
 ## synchronizer.v
 The synchronizer is used to align the 60Hz vertical refresh and 104MHz main clocks. When pulsed this can be used to start the FFT.
