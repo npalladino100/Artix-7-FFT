@@ -1,11 +1,11 @@
 # Artix-7-FFT
-Nicholas Palladino U52182660
-Issam Haddad U64708933
-Peter Crary U61020993
-Anthony Saab U90831072
+Nicholas Palladino
 
-# Project Demo Video
-https://drive.google.com/drive/folders/1ZjeA_Lr92YTrXM2x_BXecFyNE9qc24BQ?usp=sharing
+Issam Haddad
+
+Peter Crary
+
+Anthony Saab
 
 # Overview
 This project collects samples from an SPI microphone with analog to digital converter, downsamples them to achieve a sample rate within the audio spectrum, and performs a discrete Fourier transform. The output bins are then displayed as a bar plot over the VGA interface.
